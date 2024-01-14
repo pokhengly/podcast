@@ -1,7 +1,7 @@
-import {Icon} from "next/dist/lib/metadata/types/metadata-types";
+import React from "react";
 import {IconType} from "react-icons";
-import {twMerge} from "tailwind-merge";
 import Link from "next/link";
+import {twMerge} from "tailwind-merge";
 
 interface SidebarItemProps {
     icon: IconType;
@@ -11,13 +11,12 @@ interface SidebarItemProps {
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
-    icon: Icon,
-    label,
-    active,
-    href
-                                                 }) => {
+                                                     icon: Icon,
+                                                     label,
+                                                     active,
+                                                     href
+}) => {
     return (
-        // eslint-disable-next-line react/jsx-no-undef
         <Link
             href={href}
             className={twMerge(`
@@ -27,20 +26,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 items-center
                 w-full
                 gap-x-4
-                text-md
+                text-base
                 font-medium
                 cursor-pointer
                 hover:text-white
                 transition
                 text-neutral-400
                 py-1
-            `,
+                `,
                 active && "text-white"
             )}
         >
-            <Icon size={26} />
+            <Icon size={26}/>
+            <p className={"truncate w-full"}>{label}</p>
         </Link>
     );
-}
+};
 
 export default SidebarItem;

@@ -1,40 +1,46 @@
-"use client";
+"use client"
 
-import { usePathname} from "next/navigation";
-import React, {useMemo} from "react";
+import React, {useMemo} from 'react';
+import {usePathname} from "next/navigation";
 import {HiHome} from "react-icons/hi";
 import {BiSearch} from "react-icons/bi";
-import Box from "./Box";
-import SidebarItem from "./SidebarItem";
-
+import Box from "@/components/Box";
+import SidebarItem from "@/components/SidebarItem";
+import Library from "@/components/Library";
+import {twMerge} from "tailwind-merge";
 
 interface SidebarProps {
     children: React.ReactNode;
 }
 
-const Sidebar: React.FC<SidebarProps> = (
-    {
-        children
-    }) => {
-    const pathname = usePathname();
+const Sidebar: React.FC<SidebarProps> = ({
+                                             children
+                                         }) => {
+    const pathName = usePathname();
 
     const routes = useMemo(() => [
         {
             icon: HiHome,
-            label: "Home",
-            active: pathname !== '/search',
+            label: 'Home',
+            active: pathName !== '/search',
             href: '/',
         },
         {
             icon: BiSearch,
             label: 'Search',
-            active: pathname === '/search',
+            active: pathName === '/search',
             href: '/search',
-        }
-    ], [pathname]);
+        },
+    ], [pathName]);
 
     return (
-        <div className="flex h-full">
+        <div
+            className={twMerge(`
+                flex
+                h-full
+                
+            `)}
+        >
             <div
                 className="
                     hidden
@@ -57,20 +63,35 @@ const Sidebar: React.FC<SidebarProps> = (
                             py-4
                         "
                     >
-                        {routes.map((item) => (
-                            <SidebarItem
-                                key={item.label}
-                                {...item}
-                            />
-                        ))}
+                        {
+                            routes.map((item) => (
+                                <SidebarItem
+                                    key={item.label}
+                                    {...item}
+                                />
+                            ))
+                        }
+
                     </div>
                 </Box>
-                <Box className="overflow-y-auto h-full">
-                    Song Library
+                <Box className={"overflow-y-auto h-full"}>
+                    <Library/>
                 </Box>
+
             </div>
+            <main
+                className="
+                    h-full
+                    flex-1
+                    overflow-y-auto
+                    py-2
+                    pr-2
+                "
+            >
+                {children}
+            </main>
         </div>
     );
-}
+};
 
 export default Sidebar;
