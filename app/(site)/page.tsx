@@ -13,7 +13,30 @@ export default function Home() {
           "
         >
             <Header>
-                Header
+                <div className="mb-2">
+                    <h1
+                        className="
+                           text-white
+                           text-3xl
+                           font-semibold
+
+                           "
+                        >
+                        <div
+                            className="
+                                grid
+                                grid-cols-1
+                                sm:grid-cols-2
+                                xl:grid-cols-3
+                                gap-3
+                                mt-4
+                            ">
+
+
+                        </div>
+                        welcome back
+                    </h1>
+                </div>
             </Header>
         </div>
     )
