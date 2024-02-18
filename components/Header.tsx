@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({
             className={twMerge(`
                 h-fit
                 bg-gradient-to-b
-                from-emerald-800
+                from-blue-400
                 p-6
             `,
                 className
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
                         onClick={() => router.back()}
                         className="
                             rounded-full
-                            bg-black
+                            bg-white
                             flex
                             items-center
                             justify-center
@@ -67,13 +67,13 @@ export const Header: React.FC<HeaderProps> = ({
                             transition
                         "
                     >
-                        <RxCaretLeft className="text-white" size={35}/>
+                        <RxCaretLeft className="text-blue-700" size={35}/>
                     </button>
                     <button
                         onClick={() => router.forward()}
                         className="
                             rounded-full
-                            bg-black
+                            bg-white
                             flex
                             items-center
                             justify-center
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({
                             transition
                         "
                     >
-                        <RxCaretRight className="text-white" size={35}/>
+                        <RxCaretRight className="text-blue-700" size={35}/>
                     </button>
                 </div>
 
@@ -136,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
                                 onClick={() => {}}
                                 className="
                                     bg-transparent
-                                    text-neutral-300
+                                    text-black
                                     font-medium
                                     "
                             >

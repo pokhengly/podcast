@@ -27,10 +27,10 @@ const Library = () => {
                         gap-x-2
                     "
                 >
-                    <TbPlaylist className={"text-neutral-400"} size={26}/>
+                    <TbPlaylist className={"text-blue-700"} size={26}/>
                     <p
                         className="
-                            text-neutral-400
+                            text-black
                             font-medium
                             text-base
                         "
@@ -42,7 +42,7 @@ const Library = () => {
                     onClick={onCLick}
                     size={20}
                     className="
-                        text-neutral-400
+                        text-blue-700
                         cursor-pointer
                         hover:text-white
                         transition
@@ -56,6 +56,7 @@ const Library = () => {
                     gap-y-2
                     mt-4
                     px-3
+                    text-black
                 "
             >
                 List of Songs!!

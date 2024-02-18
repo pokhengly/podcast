@@ -8,13 +8,15 @@ interface SidebarItemProps {
     label: string;
     active?: boolean;
     href: string;
+    color: string;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
                                                      icon: Icon,
                                                      label,
                                                      active,
-                                                     href
+                                                     href,
+                                                     color
                                                  }) => {
     return (
         <Link
@@ -34,13 +36,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 text-neutral-400
                 py-1
                 `,
-                active && "text-white"
+                active && "text-black"
             )}
         >
-            <Icon size={26}/>
-            <p className={"truncate w-full"}>{label}</p>
+            <Icon size={26} color={color}/> {/* Ensure color prop is being passed here */}
+            <p className={"truncate w-full text-black"}>{label}</p>
         </Link>
     );
 };
-
 export default SidebarItem;

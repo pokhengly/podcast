@@ -18,20 +18,22 @@ const Sidebar: React.FC<SidebarProps> = ({
                                          }) => {
     const pathName = usePathname();
 
-    const routes = useMemo(() => [
-        {
-            icon: HiHome,
-            label: 'Home',
-            active: pathName !== '/search',
-            href: '/',
-        },
-        {
-            icon: BiSearch,
-            label: 'Search',
-            active: pathName === '/search',
-            href: '/search',
-        },
-    ], [pathName]);
+const routes = useMemo(() => [
+    {
+        icon: HiHome,
+        label: 'Home',
+        active: pathName !== '/search',
+        href: '/',
+        color: '#1D4ED8', // Set the color to blue-700 here
+    },
+    {
+        icon: BiSearch,
+        label: 'Search',
+        active: pathName === '/search',
+        href: '/search',
+        color: '#1D4ED8', // And this line
+    },
+], [pathName]);
 
     return (
         <div
@@ -47,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                     md:flex
                     flex-col
                     gap-y-2
-                    bg-black
+                    bg-gray-200
                     h-full
                     w-[300px]
                     p-2
